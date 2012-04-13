@@ -1,0 +1,9 @@
+* Overview
+Originally a homework assignment for CSCI 561 at USC's Artificial Intelligence.  This project uses the K-Nearest neighbor classifier and Naive Bayes Classifier for digit recognition.  Text files containing broken-down images are formatted with:
+
+  - 1 line per image.
+  - Each number on a line represents the pixels greyscale count, from left to right, pixel 1 through pixel 784 (28x28 greyscale images).
+
+* Approach
+For K-Nearest neighbor implementation, a eucledian distance formula is used to determine the 'distance' between two images.  The Training data is fed into the system, and using this formula we can determine how close one image is to another.  Sorting, Ranking and Voting take place after making the right comparisons with the test data to the training data.
+
