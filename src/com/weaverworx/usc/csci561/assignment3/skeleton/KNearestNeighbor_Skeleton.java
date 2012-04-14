@@ -20,7 +20,7 @@ public class KNearestNeighbor_Skeleton {
 
 	public static void main(String args[]) {
 
-		int K = readUserInput(); // read K from user input
+		int K = KNNUtil.parseKArgument(args); // read K from user input
 
 		int[][] train = FileReader.getTrainingData(numberOfFeatures, numberOfClasses); // last column 785 is a class of train
 											// image
@@ -48,8 +48,6 @@ public class KNearestNeighbor_Skeleton {
 
 			int actual_class = test[i][example_class_index];
 			int predict_class = KNNUtil.predict(K, knn_records);
-			// System.out.println(i + ":" + actual_class + ":" + predict_class +
-			// " : " + knn_records[train.length-1].distance);
 
 			if (actual_class == predict_class) {
 				correct[actual_class]++; // if actual_class same as
@@ -63,34 +61,20 @@ public class KNearestNeighbor_Skeleton {
 		}
 
 		// display output
-
-		System.out.println("K = " + K);
-
-		for (int i = 0; i < numberOfClasses; i++) {
-			double accuracy = (correct[i] * 1.0) / (correct[i] + incorrect[i]);
-			System.out.println("Class = " + i + " Correct = " + correct[i]
-					+ " Incorrect = " + incorrect[i] + " Accuracy = "
-					+ accuracy);
-		}
-
+		KNNUtil.outputResultsToStdOut(K, correct, incorrect, numberOfClasses);
 	}
-
-	static int readUserInput() {
-		return 9;
-	}
-
 	
 
-	static double getEuclideanDistance(int[] v1, int[] v2) {
-		double distance = 0; // set distance to 0
-		return distance;
-	}
-
-	static int predict(int K, KNNRecord[] knn) {
-		int max_index = 0;
-		return max_index;
-	}
-
+//	static double getEuclideanDistance(int[] v1, int[] v2) {
+//		double distance = 0; // set distance to 0
+//		return distance;
+//	}
+//
+//	static int predict(int K, KNNRecord[] knn) {
+//		int max_index = 0;
+//		return max_index;
+//	}
+//
 //	private static class KNNRecord {
 //		public int example_class;
 //		public double distance;

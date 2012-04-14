@@ -7,6 +7,7 @@
  */
 package com.weaverworx.usc.csci561.assignment3.util;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -18,10 +19,36 @@ import com.weaverworx.usc.csci561.assignment3.knn.KNNRecord;
  *
  */
 public class KNNUtil {
+	private static final String TEN_SPACES = "          ";
 	
 	private KNNUtil() { }
 	
+	public static int parseKArgument(String arguments[]) {
+		int k = 0;
+		String kString = arguments[0];
+		k = Integer.parseInt(kString);
+		return k;
+	}
 	
+	public static void outputResultsToStdOut(int k, int[] correct, int[] incorrect,
+			int numberOfClasses) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("K = " + k + "\n");
+		//Build the table column headers
+		sb.append("Class").append(TEN_SPACES).append("Correct").append(TEN_SPACES)
+			.append("Incorrect").append(TEN_SPACES).append("Accuracy");
+		sb.append("\n");
+		//Fill in the table
+		DecimalFormat accuracyFormatter = new DecimalFormat("#.#####");
+		for (int i = 0; i < numberOfClasses; i++) {
+			double accuracy = (correct[i] * 1.0) / (correct[i] + incorrect[i]);
+			sb.append(i).append("    ").append(TEN_SPACES);//Class
+			sb.append(correct[i]).append("     ").append(TEN_SPACES);//# Correct
+			sb.append(incorrect[i]).append("      ").append(TEN_SPACES);//# Incorrect
+			sb.append(accuracyFormatter.format(accuracy)).append("\n");
+		}
+		System.out.println(sb.toString());
+	}
 	
 	public static double getEuclideanDistance(int[] v1, int[] v2) {
 		double distance = 0; // set distance to 0
