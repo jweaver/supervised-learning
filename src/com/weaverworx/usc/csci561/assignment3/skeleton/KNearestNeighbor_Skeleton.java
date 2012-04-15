@@ -6,7 +6,7 @@ package com.weaverworx.usc.csci561.assignment3.skeleton;
 
 import com.weaverworx.usc.csci561.assignment3.knn.KNNRecord;
 import com.weaverworx.usc.csci561.assignment3.util.FileReader;
-import com.weaverworx.usc.csci561.assignment3.util.KNNUtil;
+import com.weaverworx.usc.csci561.assignment3.util.LearningUtil;
 
 /**
  * 
@@ -20,12 +20,12 @@ public class KNearestNeighbor_Skeleton {
 
 	public static void main(String args[]) {
 
-		int K = KNNUtil.parseKArgument(args); // read K from user input
+		int K = LearningUtil.parseKArgument(args); // read K from user input
 
 		int[][] train = FileReader.getTrainingData(numberOfFeatures, numberOfClasses); // last column 785 is a class of train
 											// image
 		int[][] test = FileReader.getTestData(numberOfFeatures, numberOfClasses); // last column 785 is a class of test
-										// imag	e
+										// image
 
 		KNNRecord[] knn_records = new KNNRecord[train.length]; //
 		for (int j = 0; j < train.length; j++) {
@@ -43,11 +43,11 @@ public class KNearestNeighbor_Skeleton {
 //				knn_records[j].example_class = train[j][example_class_index]; // class is train class
 				knn_records[j].setExampleClass(train[j][example_class_index]);
 //				knn_records[j].distance = getEuclideanDistance(test[i], train[j]); // difference between test i and train j
-				knn_records[j].setDistance(KNNUtil.getEuclideanDistance(test[i], train[j]));
+				knn_records[j].setDistance(LearningUtil.getEuclideanDistance(test[i], train[j]));
 			}
 
 			int actual_class = test[i][example_class_index];
-			int predict_class = KNNUtil.predict(K, knn_records);
+			int predict_class = LearningUtil.predictKNN(K, knn_records);
 
 			if (actual_class == predict_class) {
 				correct[actual_class]++; // if actual_class same as
@@ -61,7 +61,7 @@ public class KNearestNeighbor_Skeleton {
 		}
 
 		// display output
-		KNNUtil.outputResultsToStdOut(K, correct, incorrect, numberOfClasses);
+		LearningUtil.outputKNNResultsToStdOut(K, correct, incorrect);
 	}
 	
 
