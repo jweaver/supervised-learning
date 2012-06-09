@@ -25,10 +25,10 @@ public class LaunchClassifier {
 
 	/**
 	 * Entry point.
-	 * 
+	 *
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		ClassifierTypes classifier = LearningUtil.parseClassifierSystem(args);
 
 		if (classifier.name().compareTo(ClassifierTypes.K_NEAREST_NEIGHBOR.name()) == 0) {
