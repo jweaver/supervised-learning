@@ -1,8 +1,6 @@
 /**
  * File:        KNNUtil.java
  * Author:      Jack Weaver <jhweaver@usc.edu>
- * Course:      CSCI 561, Spring 2012
- * Assignment:  Assignment 3 - Supervised Learning Systems
  * Target:      aludra.usc.edu running Java 1.6.0_23
  */
 package com.weaverworx.usc.csci561.assignment3.util;
@@ -22,6 +20,8 @@ import com.weaverworx.usc.csci561.assignment3.knn.KNNRecord;
  * 
  * @author jw
  *
+ * TODO:  Refactor hard typed number of features and classes; should expand 
+ * for ability to specify arbitrary bit-value for the image sizes.
  */
 public class LearningUtil {
 	/*
@@ -56,22 +56,19 @@ public class LearningUtil {
 		return k;
 	}
 	
-	public static void outputBayesResultsToStdOut(int t, int[] correct, 
-			int[] incorrect) {
+	public static void outputBayesResultsToStdOut(int t, int[] correct, int[] incorrect) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("T = " + t + "\n");
 		outputResults(sb, correct, incorrect);
 	}
 	
-	public static void outputKNNResultsToStdOut(int k, int[] correct, 
-			int[] incorrect) {
+	public static void outputKNNResultsToStdOut(int k, int[] correct, int[] incorrect) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("K = " + k + "\n");
 		outputResults(sb, correct, incorrect);
 	}
 	
-	private static void outputResults(StringBuilder sb, int[] correct, 
-			int[] incorrect) {
+	private static void outputResults(StringBuilder sb, int[] correct, int[] incorrect) {
 				//Build the table column headers
 		sb.append("Class").append(TEN_SPACES).append("Correct").append(TEN_SPACES)
 			.append("Incorrect").append(TEN_SPACES).append("Accuracy");

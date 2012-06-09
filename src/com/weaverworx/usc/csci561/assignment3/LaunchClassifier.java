@@ -1,15 +1,13 @@
 /**
  * File:        Launcher.java
  * Author:      Jack Weaver <jhweaver@usc.edu>, <weaver.jack@gmail.com>
- * Course:      CSCI 561, Spring 2012
- * Assignment:  Assignment 3 - Supervised Learning Systems
  * Target:      aludra.usc.edu running Java 1.6.0_23
  */
 package com.weaverworx.usc.csci561.assignment3;
 
 import com.weaverworx.usc.csci561.assignment3.knn.KNNRecord;
 import com.weaverworx.usc.csci561.assignment3.util.ClassifierTypes;
-import com.weaverworx.usc.csci561.assignment3.util.FileReader;
+import com.weaverworx.usc.csci561.assignment3.util.ClassifierInputReader;
 import com.weaverworx.usc.csci561.assignment3.util.LearningUtil;
 
 /**
@@ -17,6 +15,10 @@ import com.weaverworx.usc.csci561.assignment3.util.LearningUtil;
  * 
  * @author jw
  * 
+ * TODO: Reduce main() size, refactor out the logic necessary for the classifications.
+ * Since there are two logical separations, this can abstracted somewhat simply.
+ * TODO: Remove hard typed class index example, provide for this to be given to the
+ * system in a different file as part of it's bootstrap.
  */
 public class LaunchClassifier {
 	private final static int EX_CLASS_INDEX = 784;
@@ -32,9 +34,9 @@ public class LaunchClassifier {
 		if (classifier.name().compareTo(ClassifierTypes.K_NEAREST_NEIGHBOR.name()) == 0) {
 			int k = LearningUtil.parseKArgument(args); // Read k from user input
 			// Get the training data and test data
-			int[][] trainData = FileReader.getTrainingData(LearningUtil.NUMBER_OF_FEATURES,
+			int[][] trainData = ClassifierInputReader.getTrainingData(LearningUtil.NUMBER_OF_FEATURES,
 					LearningUtil.NUMBER_OF_CLASSES);
-			int[][] testData = FileReader.getTestData(LearningUtil.NUMBER_OF_FEATURES,
+			int[][] testData = ClassifierInputReader.getTestData(LearningUtil.NUMBER_OF_FEATURES,
 					LearningUtil.NUMBER_OF_CLASSES);
 
 			// Set up the K-Nearest Neighbor Records
@@ -72,9 +74,9 @@ public class LaunchClassifier {
 			int threshold = LearningUtil.parseTArgument(args);
 			double[] N_Y = new double[LearningUtil.NUMBER_OF_CLASSES];
 			double[] P_Y = new double[LearningUtil.NUMBER_OF_CLASSES];
-			int[][] trainingData = FileReader.getTrainingData(LearningUtil.NUMBER_OF_FEATURES, 
+			int[][] trainingData = ClassifierInputReader.getTrainingData(LearningUtil.NUMBER_OF_FEATURES, 
 					LearningUtil.NUMBER_OF_CLASSES);
-			int[][] testData = FileReader.getTestData(LearningUtil.NUMBER_OF_FEATURES, 
+			int[][] testData = ClassifierInputReader.getTestData(LearningUtil.NUMBER_OF_FEATURES, 
 					LearningUtil.NUMBER_OF_CLASSES);
 			
 			//Setup N_Y: the number of times a given training data entry
