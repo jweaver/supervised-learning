@@ -1,11 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.weaverworx.usc.csci561.assignment3.skeleton;
 
 import com.weaverworx.usc.csci561.assignment3.knn.KNNRecord;
-import com.weaverworx.usc.csci561.assignment3.util.FileReader;
+import com.weaverworx.usc.csci561.assignment3.util.ClassifierInputReader;
 import com.weaverworx.usc.csci561.assignment3.util.LearningUtil;
 
 /**
@@ -22,9 +18,9 @@ public class KNearestNeighbor_Skeleton {
 
 		int K = LearningUtil.parseKArgument(args); // read K from user input
 
-		int[][] train = FileReader.getTrainingData(numberOfFeatures, numberOfClasses); // last column 785 is a class of train
+		int[][] train = ClassifierInputReader.getTrainingData(numberOfFeatures, numberOfClasses); // last column 785 is a class of train
 											// image
-		int[][] test = FileReader.getTestData(numberOfFeatures, numberOfClasses); // last column 785 is a class of test
+		int[][] test = ClassifierInputReader.getTestData(numberOfFeatures, numberOfClasses); // last column 785 is a class of test
 										// image
 
 		KNNRecord[] knn_records = new KNNRecord[train.length]; //

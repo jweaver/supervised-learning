@@ -1,13 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.weaverworx.usc.csci561.assignment3.skeleton;
 
 import java.io.*;
 import java.util.*;
 
-import com.weaverworx.usc.csci561.assignment3.util.FileReader;
+import com.weaverworx.usc.csci561.assignment3.util.ClassifierInputReader;
 import com.weaverworx.usc.csci561.assignment3.util.LearningUtil;
 
 /**
@@ -29,9 +25,9 @@ public class NaiveBayes_Skeleton {
 
 		int threshold = LearningUtil.parseKArgument(args); // read threshold
 
-		int[][] trainingData = FileReader.getTrainingData(numberOfFeatures, numberOfClasses); // last column 785 is a class of train
+		int[][] trainingData = ClassifierInputReader.getTrainingData(numberOfFeatures, numberOfClasses); // last column 785 is a class of train
 											// image
-		int[][] testData = FileReader.getTestData(numberOfFeatures, numberOfClasses); // last column 785 is a class of test
+		int[][] testData = ClassifierInputReader.getTestData(numberOfFeatures, numberOfClasses); // last column 785 is a class of test
 										// image
 		
 		//Setup N_Y: the number of times a given training data appears amongst ALL the training data.
