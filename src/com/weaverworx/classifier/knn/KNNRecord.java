@@ -3,7 +3,7 @@
  * Author:      Jack Weaver <jhweaver@usc.edu>
  * Target:      aludra.usc.edu running Java 1.6.0_23
  */
-package com.weaverworx.usc.csci561.assignment3.knn;
+package com.weaverworx.classifier.knn;
 
 /**
  * For K-Nearest Neighbor, a Record is an instance of the data, and contains

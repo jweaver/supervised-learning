@@ -3,7 +3,7 @@
  * Author:      Jack Weaver <jhweaver@usc.edu>
  * Target:      aludra.usc.edu running Java 1.6.0_23
  */
-package com.weaverworx.usc.csci561.assignment3.util;
+package com.weaverworx.classifier.util;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -11,8 +11,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import com.weaverworx.usc.csci561.assignment3.LaunchClassifier;
-import com.weaverworx.usc.csci561.assignment3.knn.KNNRecord;
+import com.weaverworx.classifier.LaunchClassifier;
+import com.weaverworx.classifier.knn.KNNRecord;
 
 /**
  * Provides for common utility across both K-Nearest Neighbor (KNN) and Naive

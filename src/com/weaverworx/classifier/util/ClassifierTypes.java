@@ -3,7 +3,7 @@
  * Author:      Jack Weaver <jhweaver@usc.edu>
  * Target:      aludra.usc.edu running Java 1.6.0_23
  */
-package com.weaverworx.usc.csci561.assignment3.util;
+package com.weaverworx.classifier.util;
 
 /**
  * Standard list of input the user provides to internal mapping of the given

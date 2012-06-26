@@ -3,12 +3,12 @@
  * Author:      Jack Weaver <jhweaver@usc.edu>, <weaver.jack@gmail.com>
  * Target:      aludra.usc.edu running Java 1.6.0_23
  */
-package com.weaverworx.usc.csci561.assignment3;
+package com.weaverworx.classifier;
 
-import com.weaverworx.usc.csci561.assignment3.knn.KNNRecord;
-import com.weaverworx.usc.csci561.assignment3.util.ClassifierTypes;
-import com.weaverworx.usc.csci561.assignment3.util.ClassifierInputReader;
-import com.weaverworx.usc.csci561.assignment3.util.LearningUtil;
+import com.weaverworx.classifier.knn.KNNRecord;
+import com.weaverworx.classifier.util.ClassifierInputReader;
+import com.weaverworx.classifier.util.ClassifierTypes;
+import com.weaverworx.classifier.util.LearningUtil;
 
 /**
  * Main class to launch the application.

@@ -1,10 +1,10 @@
-package com.weaverworx.usc.csci561.assignment3.skeleton;
+package com.weaverworx.classifier.skeleton;
 
 import java.io.*;
 import java.util.*;
 
-import com.weaverworx.usc.csci561.assignment3.util.ClassifierInputReader;
-import com.weaverworx.usc.csci561.assignment3.util.LearningUtil;
+import com.weaverworx.classifier.util.ClassifierInputReader;
+import com.weaverworx.classifier.util.LearningUtil;
 
 /**
  * 
